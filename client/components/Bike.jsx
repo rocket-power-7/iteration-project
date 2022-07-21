@@ -5,7 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
-const Bike = () => {
+const Bike = ( {setBikeCarbon} ) => {
 
   const bikeOptions = [
     {
@@ -49,6 +49,9 @@ const Bike = () => {
       .then(response => response.json())
       .then(data => {
         console.log(data)
+        let value = String(data).split(" ")
+        console.log(value)
+        setBikeCarbon(value[0])
       })
       .catch((error) => {
         console.error('Error:', error);

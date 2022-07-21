@@ -5,7 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
-const Car = () => {
+const Car = ( { setCarCarbon } ) => {
 
   const carOptions = [
     {
@@ -37,23 +37,23 @@ const Car = () => {
       label: 'Large LPG Car'
     },
     {
-      value: 'SmallPetrolCan',
-      label: 'Small Petrol Can'
+      value: 'SmallPetrolVan',
+      label: 'Small Petrol Van'
     },
     {
       value: 'LargePetrolVan',
       label: 'Large Petrol Van'
     },
     {
-      value: 'SmallDieselVan',
+      value: 'SmallDielselVan',
       label: 'Small Diesel Van'
     },
     {
-      value: 'MediumDieselVan',
+      value: 'MediumDielselVan',
       label: 'Medium Diesel Van'
     },
     {
-      value: 'LargeDieselVan',
+      value: 'LargeDielselVan',
       label: 'Large Diesel Van'
     },
     {
@@ -88,7 +88,6 @@ const Car = () => {
     
     // Prevents re-rendering of page
     event.preventDefault();
-
     const data = { mileValue, carType };
 
     //fetch -- POST to backend
@@ -102,6 +101,9 @@ const Car = () => {
       .then(response => response.json())
       .then(data => {
         console.log(data)
+        let value = String(data).split(" ")
+        console.log(value)
+        setCarCarbon(value[0])
       })
       .catch((error) => {
         console.error('Error:', error);

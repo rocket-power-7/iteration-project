@@ -19,6 +19,7 @@ apiController.carStat = (req, res, next) => {
   .then(response => response.json())
   .then(data => {
     console.log('Success:', data);
+    res.locals.carInfo = data.carbon
     next();
   })
   .catch((error) => {
@@ -43,6 +44,7 @@ apiController.bikeStat = (req, res, next) => {
   .then(response => response.json())
   .then(data => {
     console.log('Success:', data);
+    res.locals.bikeInfo = data.carbon
     next();
   })
   .catch((error) => {
@@ -67,6 +69,7 @@ apiController.homeStat = (req, res, next) => {
   .then(response => response.json())
   .then(data => {
     console.log('Success:', data);
+    res.locals.homeInfo = data.carbon
     next();
   })
   .catch((error) => {
