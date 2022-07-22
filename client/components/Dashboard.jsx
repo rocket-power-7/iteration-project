@@ -32,7 +32,7 @@ import React, { useEffect, useState } from "react";
         const carAvg = 88.46;
         const homeAvg = 710.3;
         const bikeAvg = 38.59;
-        console.log(carCarbon)
+
         if(carCarbon !== 0) {
             averages.push(carAvg)
             userData.push(carCarbon)

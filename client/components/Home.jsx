@@ -66,9 +66,7 @@ const Home = ( { setHomeCarbon } ) => {
         })
         .then(response => response.json())
         .then(data => {
-          console.log(data)
           let value = String(data).split(" ")
-          console.log(value)
           setHomeCarbon(value[0])
         })
         .catch((error) => {

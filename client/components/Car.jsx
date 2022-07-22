@@ -85,7 +85,7 @@ const Car = ( { setCarCarbon } ) => {
 
   // Function that will route to /car in server
   const handleSubmit = (event) => {
-    
+
     // Prevents re-rendering of page
     event.preventDefault();
     const data = { mileValue, carType };
@@ -101,11 +101,12 @@ const Car = ( { setCarCarbon } ) => {
       .then(response => response.json())
       .then(data => {
 
-        //removes the units from the returned CO2 value
+        //removes the units from the returned CO2
         let value = String(data).split(" ");
-
-        //stores value in state
+   
+        //sets state
         setCarCarbon(value[0]);
+
       })
       .catch((error) => {
         console.error('Error:', error);
