@@ -8,7 +8,7 @@ import React, { useEffect, useState } from "react";
     const [userData, setUserData] = useState()
     const [carData, setCarData] = useState()
     const [homeData, setHomeData] = useState()
-    const [xData, setXData] = useState()
+    const [bikeData, setBikeData] = useState()
     const [avg, setAvg] = useState()
     const [names, setNames] = useState()
     const [carMessage, setCarMessage] = useState()
@@ -29,9 +29,9 @@ import React, { useEffect, useState } from "react";
         const averages = []
         const userData = []
         const label = []
-        const carAvg = 1;
-        const homeAvg = 2;
-        const bikeAvg = 3;
+        const carAvg = 88.46;
+        const homeAvg = 710.3;
+        const bikeAvg = 38.59;
         console.log(carCarbon)
         if(carCarbon !== 0) {
             averages.push(carAvg)
@@ -49,7 +49,7 @@ import React, { useEffect, useState } from "react";
         if (bikeCarbon !== 0) {
             averages.push(bikeAvg)
             userData.push(bikeCarbon)
-            label.push('x')
+            label.push('bike')
             setBikeMessage(message(bikeCarbon, bikeAvg, 'bike'))
         }
 

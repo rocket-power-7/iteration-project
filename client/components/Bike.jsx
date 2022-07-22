@@ -52,6 +52,7 @@ const Bike = ( {setBikeCarbon} ) => {
         let value = String(data).split(" ")
         console.log(value)
         setBikeCarbon(value[0])
+      
       })
       .catch((error) => {
         console.error('Error:', error);

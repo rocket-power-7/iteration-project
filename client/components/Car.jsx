@@ -100,10 +100,12 @@ const Car = ( { setCarCarbon } ) => {
       })
       .then(response => response.json())
       .then(data => {
-        console.log(data)
-        let value = String(data).split(" ")
-        console.log(value)
-        setCarCarbon(value[0])
+
+        //removes the units from the returned CO2 value
+        let value = String(data).split(" ");
+
+        //stores value in state
+        setCarCarbon(value[0]);
       })
       .catch((error) => {
         console.error('Error:', error);

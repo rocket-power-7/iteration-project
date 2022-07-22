@@ -1,5 +1,6 @@
 require("dotenv").config();
 const fetch = require('node-fetch');
+const db = require('../db');
 
 const apiController = {};
 
@@ -19,7 +20,7 @@ apiController.carStat = (req, res, next) => {
   .then(response => response.json())
   .then(data => {
     console.log('Success:', data);
-    res.locals.carInfo = data.carbon
+    res.locals.carInfo = data.carbon;
     next();
   })
   .catch((error) => {
@@ -27,6 +28,17 @@ apiController.carStat = (req, res, next) => {
   });
 }
 
+apiController.DB = (req, res, next) => {
+    // if res.locals.BIKE or CAR or HOME
+    //   alter logic based on energy type
+
+  const carAvg = 88.46;
+  const homeAvg = 710.3;
+  const bikeAvg = 38.59;
+
+  const query = 
+  `INSERT INTO car_stats (car_metric, car_percent, car_created_at, fk_user_id) VALUES ()`
+}
 
 apiController.bikeStat = (req, res, next) => {
 
@@ -44,7 +56,9 @@ apiController.bikeStat = (req, res, next) => {
   .then(response => response.json())
   .then(data => {
     console.log('Success:', data);
-    res.locals.bikeInfo = data.carbon
+    res.locals.bikeInfo = data.carbon;
+    VALUES (value[0], )
+    
     next();
   })
   .catch((error) => {
@@ -69,7 +83,7 @@ apiController.homeStat = (req, res, next) => {
   .then(response => response.json())
   .then(data => {
     console.log('Success:', data);
-    res.locals.homeInfo = data.carbon
+    res.locals.homeInfo = data.carbon;
     next();
   })
   .catch((error) => {
