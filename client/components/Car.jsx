@@ -162,7 +162,7 @@ const Car = ( { setCarCarbon, newPost, setNewPost } ) => {
           <Button variant="contained" onClick={handleSubmit}>Submit</Button>
         </Stack>
     </div>
-    <div className='tag'>
+    <div className='popup'>
       {popUp()}
     </div>
     </div>

@@ -34,10 +34,10 @@ export default function SharePopUp({ carbon, message, newPost, setNewPost }) {
 
   return (
       
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, backgroundColor: "#F8F8F8" }}>
         
       <CardActionArea>
-      <button onClick={()=>{setClose(false)}} style={{color: "red", backgroundColor:"white", border:"none"}}>X</button>
+      <button onClick={()=>{setClose(false)}} style={{color: "red", backgroundColor:"#F8F8F8", border:"none"}}>X</button>
         <CardMedia
           component="img"
           height="140"
