@@ -15,13 +15,13 @@ const App = () => {
     const [loggedIn, setLoggedIn] = useState(false)
 
 
-    if (!loggedIn) {
+    if (loggedIn) {
         return (
             <div>
                 <Routes>
                     <Route path='/' element={<ButtonAppBar loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>}>
                         <Route path='/' element={<BodyLogged />}>
-                            <Route path='/' exact element={<CarbonFootprint />}> 
+                            <Route path='/feed' exact element={<CarbonFootprint />}> 
                             </Route>
                             <Route path='/*' element={<Navigate to='/' replace={true} />} />
                         </Route>

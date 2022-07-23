@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import SharePopUp from './SharePopUp.jsx';
 
 const Car = ( { setCarCarbon } ) => {
 
@@ -73,6 +74,8 @@ const Car = ( { setCarCarbon } ) => {
   // Sets state with inputed car type and # miles weekly
   const [carType, setCarType] = React.useState('');
   const [mileValue, setMileValue] = React.useState('');
+  const [carbon, setCarbon] = React.useState();
+  const [message, setMessage] = React.useState()
 
   // Function that handles onChange event (as you type)
   const handleChange1 = (event) => {
@@ -104,13 +107,26 @@ const Car = ( { setCarCarbon } ) => {
         let value = String(data).split(" ")
         console.log(value)
         setCarCarbon(value[0])
+        setCarbon(value[0])
+        // add average here
+        const average = 5
+        const percentage = (((average-value[0])/average)*100).toFixed(1)
+        setMessage(`My car's carbon emissions are ${percentage}% more sustainable than the average! Learn from me!`)
       })
       .catch((error) => {
         console.error('Error:', error);
       });
   }
 
+  const popUp = () => {
+    // add average here
+    if(carbon < 3) {
+      return < SharePopUp carbon = {carbon} message={message} />
+    }
+  }
+
   return (
+    <div>
     <div>
       <Box
         component="form"
@@ -146,6 +162,10 @@ const Car = ( { setCarCarbon } ) => {
         <Stack direction="row" spacing={2}>
           <Button variant="contained" onClick={handleSubmit}>Submit</Button>
         </Stack>
+    </div>
+    <div className='tag'>
+      {popUp()}
+    </div>
     </div>
   );
 }
