@@ -73,6 +73,7 @@ const Home = ( { setHomeCarbon, newPost, setNewPost } ) => {
           let value = String(data).split(" ")
           console.log(value)
           setCarbon(value[0])
+          setHomeCarbon(value[0])
           // add average here
           const average = 5
           const percentage = (((average-value[0])/average)*100).toFixed(1)
