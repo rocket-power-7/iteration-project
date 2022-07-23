@@ -126,8 +126,6 @@ apiController.bikeStat = (req, res, next) => {
   .then(data => {
     console.log('Success:', data);
     res.locals.bikeInfo = data.carbon;
-    VALUES (value[0], )
-    
     next();
   })
   .catch((error) => {
