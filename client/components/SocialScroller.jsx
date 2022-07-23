@@ -7,7 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 
-const SocialScroller = ({ posts, setPosts }) => {
+const SocialScroller = ({ posts, setPosts, newPost }) => {
   // Theme
   const [darkMode, setDarkMode] = useState(false);
   const theme = createTheme({ palette: { mode: (darkMode ? 'dark' : 'light'), dark: { main: '#000' }, light: { main: '#fff' } } });
@@ -20,7 +20,7 @@ const SocialScroller = ({ posts, setPosts }) => {
         setPosts(postData);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [newPost]);
 
   // Render component
   return (

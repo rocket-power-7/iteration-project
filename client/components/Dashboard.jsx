@@ -151,15 +151,13 @@ import LineChart from "./LineChart.jsx";
     const renderBox = () => {
         if (compareValue == "current"){
           return (
-            <div>
-            <BarChart chartData={graphData} style={{alignItems: "left"}}/>
-            </div>
+            <BarChart chartData={graphData} style={{alignItems: "center"}}/>
           )
         }
     
         if (compareValue == "historical"){
           return (
-            <LineChart chartData={lineGraphData} style={{alignItems: "left"}}/>
+            <LineChart chartData={lineGraphData} style={{alignItems: "center"}}/>
           )
         }
       }
@@ -169,28 +167,27 @@ import LineChart from "./LineChart.jsx";
       };
 
     return (
-        <div className="dashboard" style={{ background: 'linear-gradient(to right bottom, #D3D3D3, #abf7b1	)'}}>
+        <div className="dashboard" style={{ background: 'linear-gradient(to right bottom, #7cc489, #59c2ad)', marginTop: 32, width: '95%' }}>
             <div className="stats">
-            <h3 style={{textAlign: "center", fontFamily: "system-ui"}}>EMISSION STATISTICS</h3>
-            <h5 className="statss" style={{textAlign: "left", marginLeft: "15px", fontFamily: "sans-serif"}}>{carMessage}</h5>
-            <h5 className="statss" style={{textAlign: "left", marginLeft: "15px", fontFamily: "sans-serif"}}>{bikeMessage}</h5>
-            <h5 className="statss" style={{textAlign: "left", marginLeft: "15px", fontFamily: "sans-serif"}}>{homeMessage}</h5>
-            <h4 className="statss" style={{textAlign: "center", marginLeft: "15px", fontFamily: "sans-serif"}}>{totalEmissions}</h4>
+                <h3 style={{textAlign: "center", fontFamily: "system-ui"}}>EMISSION STATISTICS</h3>
+                <h5 className="statss" style={{textAlign: "left", marginLeft: "15px", fontFamily: "sans-serif"}}>{carMessage}</h5>
+                <h5 className="statss" style={{textAlign: "left", marginLeft: "15px", fontFamily: "sans-serif"}}>{bikeMessage}</h5>
+                <h5 className="statss" style={{textAlign: "left", marginLeft: "15px", fontFamily: "sans-serif"}}>{homeMessage}</h5>
+                <h4 className="statss" style={{textAlign: "center", marginLeft: "15px", fontFamily: "sans-serif"}}>{totalEmissions}</h4>
             </div>
-            <div className="barchart" style={{margin: "10px", width: "400px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
-            <ToggleButtonGroup
-            color="primary"
-            value={compareValue}
-            exclusive
-            onChange={handleChange}
-            sx={{background: "lightgrey"}}
-            size="small"
-
-            >
-            <ToggleButton value="current">Current</ToggleButton>
-            <ToggleButton value="historical" >Historical</ToggleButton>
-            </ToggleButtonGroup>
-            {renderBox()}
+            <div style={{margin: "10px", display: "flex", width:'400px', flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
+                <ToggleButtonGroup
+                    color="primary"
+                    value={compareValue}
+                    exclusive
+                    onChange={handleChange}
+                    sx={{background: "lightgrey"}}
+                    size="small"
+                >
+                    <ToggleButton value="current">Current</ToggleButton>
+                    <ToggleButton value="historical" >Historical</ToggleButton>
+                </ToggleButtonGroup>
+                { renderBox() }
             </div>
         </div>
     )

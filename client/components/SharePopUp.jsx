@@ -7,7 +7,7 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import share from "../../share.jpg";
 import CloseSharpIcon from '@mui/icons-material/CloseSharp';
 
-export default function SharePopUp({ carbon, message }) {
+export default function SharePopUp({ carbon, message, newPost, setNewPost }) {
 
     const [close, setClose] = React.useState(true);
 
@@ -23,6 +23,7 @@ export default function SharePopUp({ carbon, message }) {
             .then(response => response.json())
             .then(data => {
               console.log(data)
+              setNewPost(!newPost);
             })
         setClose(false)
     }

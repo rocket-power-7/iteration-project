@@ -8,7 +8,7 @@ import Bike from './Bike.jsx';
 import Chart from './Dashboard.jsx';
 
 
-const CarbonOptions = ({ setPosts }) => {
+const CarbonOptions = ({ setPosts, newPost, setNewPost }) => {
 
   const [compareValue, setComparison] = React.useState('');
   const [carCarbon, setCarCarbon] = React.useState(0);
@@ -22,19 +22,19 @@ const CarbonOptions = ({ setPosts }) => {
   const renderBox = () => {
     if (compareValue === "car"){
       return (
-        <Car setCarCarbon={setCarCarbon}/>
+        <Car setCarCarbon={setCarCarbon} newPost={newPost} setNewPost={setNewPost} />
       )
     }
 
     if (compareValue === "bike"){
       return (
-        <Bike setBikeCarbon={setBikeCarbon}/>
+        <Bike setBikeCarbon={setBikeCarbon} newPost={newPost} setNewPost={setNewPost} />
       )
     }
 
     if (compareValue === "home"){
       return (
-        <Home setHomeCarbon={setHomeCarbon}/>
+        <Home setHomeCarbon={setHomeCarbon} newPost={newPost} setNewPost={setNewPost} />
       )
     }
   }
