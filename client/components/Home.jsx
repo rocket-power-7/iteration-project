@@ -92,19 +92,19 @@ const Home = ( { setHomeCarbon, newPost, setNewPost } ) => {
     }
   
     return (
-      <div>
-      <div>
+      <div class='parentForm'>
+      <div class='compareBox'>
         <Box
           component="form"
-          sx={{'& > :not(style)': { m: 1, width: '25ch' },}}
           noValidate
           autoComplete="off" >
-          <h1>Carbon Footprint Comparison: Home Energy</h1>
+          <h1 class='h1Compare'>Home Energy</h1>
+          <br/>
           <TextField 
           id="outlined-basic" 
           label="Required" 
           variant="outlined" 
-          helperText="Please input your weekly driving distance in kilometers"
+          helperText="Please input your monthly KWH usage"
           value={KWH}
           onChange={handleChange1}
           placeholder='monthly KWH'/>
@@ -125,7 +125,7 @@ const Home = ( { setHomeCarbon, newPost, setNewPost } ) => {
               </MenuItem>
             ))}
           </TextField>
-          <Stack direction="row" spacing={2}>
+          <Stack direction="row" spacing={2} justifyContent='center'>
             <Button variant="contained" onClick={handleSubmit}>Submit</Button>
           </Stack>
       </div>

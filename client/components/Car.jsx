@@ -125,15 +125,16 @@ const Car = ( { setCarCarbon, newPost, setNewPost } ) => {
   }
 
   return (
-    <div>
-    <div>
+    <div class='parentForm'>
+    <div class='compareBox'>
       <Box
         component="form"
-        sx={{'& > :not(style)': { m: 1, width: '25ch' },}}
         noValidate
         autoComplete="off" >
-        <h1>Carbon Footprint Comparison: Car</h1>
+        <h1 class='h1Compare'>Car</h1>
+        <br/>
         <TextField 
+        alignSelf='center'
         id="outlined-basic" 
         label="Required" 
         variant="outlined" 
@@ -144,6 +145,7 @@ const Car = ( { setCarCarbon, newPost, setNewPost } ) => {
         
         </Box>
         <TextField
+        alignSelf='center'
         id="outlined-select-currency"
         select
         label="Select"
@@ -158,7 +160,7 @@ const Car = ( { setCarCarbon, newPost, setNewPost } ) => {
             </MenuItem>
           ))}
         </TextField>
-        <Stack direction="row" spacing={2}>
+        <Stack direction="row" spacing={2} justifyContent='center'>
           <Button variant="contained" onClick={handleSubmit}>Submit</Button>
         </Stack>
     </div>

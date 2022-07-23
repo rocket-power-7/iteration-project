@@ -74,15 +74,15 @@ const Bike = ( {setBikeCarbon, newPost, setNewPost} ) => {
   }
 
   return (
-    <div>
-    <div>
+    <div class='parentForm'>
+    <div class='compareBox'>
       <Box
         component="form"
-        sx={{'& > :not(style)': { m: 1, width: '25ch' },}}
         noValidate
         autoComplete="off"
       >
-        <h1>Carbon Footprint Comparison: Motor Bike</h1>
+        <h1 class='h1Compare'>Motor Bike</h1>
+        <br/>
         <TextField 
         id="outlined-basic" 
         label="Required" 
@@ -107,8 +107,8 @@ const Bike = ( {setBikeCarbon, newPost, setNewPost} ) => {
             </MenuItem>
           ))}
         </TextField>
-        <Stack direction="row" spacing={2}>
-          <Button variant="contained" onClick={handleSubmit}>Submit</Button>
+        <Stack direction="row" spacing={2} justifyContent='center' >
+          <Button sx={{alignSelf: "center"}} variant="contained" onClick={handleSubmit}>Submit</Button>
         </Stack>
     </div>
     <div className='popup'>
