@@ -11,10 +11,11 @@ socialController.getAllPosts = (req, res, next) => {
   db.query(query)
     .then((data) => {
       // Format the data that will be sent back to the front-end
+      console.log(data.rows);
       const posts = data.rows.map((postData) => ({
         postId: postData.pk_post_id,
-        firstName: postData.first_name,
-        lastName: postData.last_name,
+        firstName: postData.name_first,
+        lastName: postData.name_last,
         message: postData.message,
         statPercent: postData.stat_percent,
         createdAt: postData.post_created_at,

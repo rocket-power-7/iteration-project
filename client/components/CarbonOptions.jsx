@@ -8,7 +8,7 @@ import Bike from './Bike.jsx';
 import Chart from './Dashboard.jsx';
 
 
-const CarbonOptions = () => {
+const CarbonOptions = ({ setPosts }) => {
 
   const [compareValue, setComparison] = React.useState('');
   const [carCarbon, setCarCarbon] = React.useState(0);
@@ -20,20 +20,19 @@ const CarbonOptions = () => {
   };
 
   const renderBox = () => {
-    if (compareValue == "car"){
+    if (compareValue === "car"){
       return (
         <Car setCarCarbon={setCarCarbon}/>
-
       )
     }
 
-    if (compareValue == "bike"){
+    if (compareValue === "bike"){
       return (
         <Bike setBikeCarbon={setBikeCarbon}/>
       )
     }
 
-    if (compareValue == "home"){
+    if (compareValue === "home"){
       return (
         <Home setHomeCarbon={setHomeCarbon}/>
       )
@@ -43,14 +42,13 @@ const CarbonOptions = () => {
   return (
     <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
       <Chart carCarbon={carCarbon} homeCarbon={homeCarbon} bikeCarbon={bikeCarbon} />
-      <h3 style={{border: "solid", marginTop: "50px"}}> Hello </h3>
+      <h3 style={{border: "solid", marginTop: "50px"}}> Compare Your Carbon Footprint </h3>
       <div style={{border: "solid"}}>
       <ToggleButtonGroup
       color="primary"
       value={compareValue}
       exclusive
       onChange={handleChange}
-      sx={{background: "red"}}
       >
         <ToggleButton value="car">Car Travel</ToggleButton>
         <ToggleButton value="bike" >Motor Bike</ToggleButton>

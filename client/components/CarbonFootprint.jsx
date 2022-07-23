@@ -2,16 +2,23 @@ import React from 'react';
 import '../style.css'; //test this
 import { Link } from 'react-router-dom';
 import CarbonOptions from './CarbonOptions.jsx';
+import SocialScroller from './SocialScroller.jsx';
 import Chart from './Dashboard.jsx';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 
-const CarbonFootprint = () => {
-
+const CarbonFootprint = ({ posts, setPosts }) => {
   return (
-    <div className='dashboard2'>
-      {/* add Dashboard here */}
-      <CarbonOptions />
-      {/* add Social posts here */}
-    </div>
+    <Box>
+      <Grid container spacing={4}>
+        <Grid item xs={8} sx={{ overflow: 'hidden' }}>
+          <CarbonOptions setPosts={setPosts} />
+        </Grid>
+        <Grid item xs={4}>
+          <SocialScroller posts={posts} setPosts={setPosts} />
+        </Grid>
+      </Grid>
+    </Box>
   )
 }
 
