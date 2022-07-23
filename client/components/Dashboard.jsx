@@ -22,18 +22,20 @@ import LineChart from "./LineChart.jsx";
     const [totalEmissionsGraph, setTotalEmissionsGraph] = useState()
     const [totalEmissionsGraphAvg, setTotalEmissionsGraphAvg] = useState()
     const [compareValue, setComparison] = useState('');
-    const [historicalData, setHistoricalData] = useState([2,8,5,6,3])
+    const [carHistoricalData, setCarHistoricalData] = useState([2,8,5,6,3])
+    const [bikeHistoricalData, setBikeHistoricalData] = useState([4,7,2,7,3])
+    const [homeHistoricalData, setHomeHistoricalData] = useState([7,9,5,2,5])
     const [arrLength, setArrLength] = useState()
     const [historicalColor, setHistoricalColor] = useState()
 
     useEffect(() => {
             const arr = []
-            console.log(historicalData.length)
-            for(let i = 1; i<=historicalData.length; i++) {
+            console.log(carHistoricalData.length)
+            for(let i = 1; i<=carHistoricalData.length; i++) {
                 arr.push(i)
             }
             setArrLength(arr)
-            if(historicalData[arr.length-1] > historicalData[0]) {
+            if(carHistoricalData[arr.length-1] > carHistoricalData[0]) {
                 setHistoricalColor('red')
             } else {
                 setHistoricalColor('green')
@@ -132,9 +134,17 @@ import LineChart from "./LineChart.jsx";
     let lineGraphData = {
         labels: arrLength,
         datasets: [{
-            label: "kg CO2",
-            data: historicalData,
-            borderColor: historicalColor,
+            label: "Car",
+            data: carHistoricalData,
+            borderColor: "purple",
+        },{
+            label: "Bike",
+            data: bikeHistoricalData,
+            borderColor: "green",
+        },{
+            label: "Home",
+            data: homeHistoricalData,
+            borderColor: "blue",
         }]
     }
 
