@@ -10,9 +10,22 @@ import myLogo from '../../logo3.png';
 import { Outlet } from "react-router-dom";
 import SignUp from './Signup.jsx';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 export default function ButtonAppBar({ loggedIn, setLoggedIn }) {
+
+  const handleClick = () => {
+
+    axios.get('./api/user/logout')
+      .then((res) => {
+        setLoggedIn(false)
+        console.log(res)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
 
     if(loggedIn) {
         return (
@@ -24,7 +37,7 @@ export default function ButtonAppBar({ loggedIn, setLoggedIn }) {
                   <Typography variant="h5" sx={{ flexGrow: 1, marginLeft: 2, marginTop: 0.5, fontFamily: "Helvetica" ,color: "linear-gradient(to right bottom, #3ce666, #1957c2)"}}>
                     NO PLANET B
                   </Typography>
-                  <Button color="inherit" sx={{marginRight: 4}} component={Link} to='/' onClick={()=>{setLoggedIn(false)}}>Logout</Button>
+                  <Button color="inherit" sx={{marginRight: 4}} component={Link} to='/' onClick={handleClick}>Logout</Button>
                 </Toolbar>
               </AppBar>
             </Box>

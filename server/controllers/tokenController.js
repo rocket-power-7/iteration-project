@@ -11,11 +11,11 @@ tokenController.createToken = (req, res, next) => {
   const token = jwt.sign(
     { userData: res.locals.userData }, // User info (user_id, email, hashed password, name_first, name_last, created at)
     process.env.ACCESS_TOKEN_SECRET, // Secret for all of our tokens
-    { expiresIn: rememberMe ? '1d' : '10m' } // Token expiration depends on rememberMe
+    { expiresIn: rememberMe ? '30d' : '1d' } // Token expiration depends on rememberMe
   );
 
   // Create a cookie to be stored on the client with the token
-  res.cookie('token', token, { httpOnly: true });
+  res.cookie('token', token);
 
   // Continue to next middleware function
   return next();

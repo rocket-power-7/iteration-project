@@ -4,8 +4,9 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import SharePopUp from './SharePopUp.jsx';
 
-const Home = ( { setHomeCarbon } ) => {
+const Home = ( { setHomeCarbon, newPost, setNewPost } ) => {
 
   const countryOptions = [
     {
@@ -41,6 +42,8 @@ const Home = ( { setHomeCarbon } ) => {
     // Sets state with inputed car type and # miles weekly
     const [KWH, setKWH] = React.useState('');
     const [country, setCountry] = React.useState('');
+    const [carbon, setCarbon] = React.useState();
+    const [message, setMessage] = React.useState();
   
     // Function that handles onChange event (as you type)
     const handleChange1 = (event) => {
@@ -67,15 +70,29 @@ const Home = ( { setHomeCarbon } ) => {
         .then(response => response.json())
         .then(data => {
           let value = String(data).split(" ")
+          console.log(value)
+          setCarbon(value[0])
           setHomeCarbon(value[0])
+          // add average here
+          const average = 710.3
+          const percentage = (((average-value[0])/average)*100).toFixed(1)
+          setMessage(`My home's carbon emissions are ${percentage}% more sustainable than the average! Learn from me!`)
         })
         .catch((error) => {
           console.error('Error:', error);
         });
       
     }
+
+    const popUp = () => {
+      // add average here
+      if(carbon < 710.3) {
+        return <SharePopUp carbon = {carbon} message={message} newPost={newPost} setNewPost={setNewPost} />
+      }
+    }
   
     return (
+      <div>
       <div>
         <Box
           component="form"
@@ -111,6 +128,10 @@ const Home = ( { setHomeCarbon } ) => {
           <Stack direction="row" spacing={2}>
             <Button variant="contained" onClick={handleSubmit}>Submit</Button>
           </Stack>
+      </div>
+      <div className='tag'>
+      {popUp()}
+      </div>
       </div>
     );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 
 import {
     Chart,
@@ -54,10 +54,10 @@ import {
     Tooltip
   );
 
-const BarChart = ( { chartData, options } ) => {
+const LineChart = ( { chartData, options } ) => {
     return (
-        <Bar data={chartData} options={options} style={{ width: 400 }} />
+        <Line data={chartData} options={options} style={{ width: 400 }} />
     )
 }
 
-export default BarChart;
+export default LineChart;

@@ -18,8 +18,8 @@ import axios from 'axios';
 
 const theme = createTheme();
 
-export default function SignUp() {
-
+export default function SignUp({ posts, setPosts }) {
+  // State
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [firstName, setFirstName] = useState('')
@@ -35,16 +35,22 @@ export default function SignUp() {
       email,
       password
     })
-    .then((res) => {
+    .then(() => {
       setEmail('');
       setFirstName('');
-      setLastName('')
-      setPassword('')
-      setSuccessful('You have successfully signed up')
-
+      setLastName('');
+      setPassword('');
+      setSuccessful('You have successfully signed up');
+      // Post about the new user signup
+      const message = `${firstName} ${lastName} just joined the community!`;
+      axios.post('/api/social', { message })
+        .then(({ postId }) => {
+          // Display the new post
+          setPosts([{ postId, message, firstName, lastName, createdAt: (new Date()).toDateString() }, ...posts]);
+        })
     })
     .catch((error) => {
-      console.log(error)
+      console.log(error);
     })
   };
 

@@ -8,7 +8,7 @@ import Bike from './Bike.jsx';
 import Chart from './Dashboard.jsx';
 
 
-const CarbonOptions = () => {
+const CarbonOptions = ({ setPosts, newPost, setNewPost }) => {
 
   const [compareValue, setComparison] = React.useState('');
   const [carCarbon, setCarCarbon] = React.useState(0);
@@ -20,36 +20,35 @@ const CarbonOptions = () => {
   };
 
   const renderBox = () => {
-    if (compareValue == "car"){
+    if (compareValue === "car"){
       return (
-        <Car setCarCarbon={setCarCarbon}/>
-
+        <Car setCarCarbon={setCarCarbon} newPost={newPost} setNewPost={setNewPost} />
       )
     }
 
-    if (compareValue == "bike"){
+    if (compareValue === "bike"){
       return (
-        <Bike setBikeCarbon={setBikeCarbon}/>
+        <Bike setBikeCarbon={setBikeCarbon} newPost={newPost} setNewPost={setNewPost} />
       )
     }
 
-    if (compareValue == "home"){
+    if (compareValue === "home"){
       return (
-        <Home setHomeCarbon={setHomeCarbon}/>
+        <Home setHomeCarbon={setHomeCarbon} newPost={newPost} setNewPost={setNewPost} />
       )
     }
   }
 
   return (
-    <div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
+    <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
       <Chart carCarbon={carCarbon} homeCarbon={homeCarbon} bikeCarbon={bikeCarbon} />
-      <div style={{marginTop: "10px"}}>
+      <h3 style={{border: "solid", marginTop: "50px"}}> Compare Your Carbon Footprint </h3>
+      <div>
       <ToggleButtonGroup
       color="primary"
       value={compareValue}
       exclusive
       onChange={handleChange}
-      sx={{background: "red"}}
       >
         <ToggleButton value="car">Car Travel</ToggleButton>
         <ToggleButton value="bike" >Motor Bike</ToggleButton>
