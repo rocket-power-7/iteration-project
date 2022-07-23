@@ -69,13 +69,12 @@ const Home = ( { setHomeCarbon, newPost, setNewPost } ) => {
         })
         .then(response => response.json())
         .then(data => {
-          console.log(data)
           let value = String(data).split(" ")
           console.log(value)
           setCarbon(value[0])
           setHomeCarbon(value[0])
           // add average here
-          const average = 5
+          const average = 710.3
           const percentage = (((average-value[0])/average)*100).toFixed(1)
           setMessage(`My home's carbon emissions are ${percentage}% more sustainable than the average! Learn from me!`)
         })
@@ -87,7 +86,7 @@ const Home = ( { setHomeCarbon, newPost, setNewPost } ) => {
 
     const popUp = () => {
       // add average here
-      if(carbon < 3) {
+      if(carbon < 710.3) {
         return <SharePopUp carbon = {carbon} message={message} newPost={newPost} setNewPost={setNewPost} />
       }
     }

@@ -88,7 +88,7 @@ const Car = ( { setCarCarbon, newPost, setNewPost } ) => {
 
   // Function that will route to /car in server
   const handleSubmit = (event) => {
-    
+
     // Prevents re-rendering of page
     event.preventDefault();
     const data = { mileValue, carType };
@@ -108,8 +108,7 @@ const Car = ( { setCarCarbon, newPost, setNewPost } ) => {
         console.log(value)
         setCarCarbon(value[0])
         setCarbon(value[0])
-        // add average here
-        const average = 5
+        const average = 88.46
         const percentage = (((average-value[0])/average)*100).toFixed(1)
         setMessage(`My car's carbon emissions are ${percentage}% more sustainable than the average! Learn from me!`)
       })
@@ -120,7 +119,7 @@ const Car = ( { setCarCarbon, newPost, setNewPost } ) => {
 
   const popUp = () => {
     // add average here
-    if (carbon < 3) {
+    if (carbon < 88.46) {
       return <SharePopUp carbon = {carbon} message={message} newPost={newPost} setNewPost={setNewPost} />
     }
   }

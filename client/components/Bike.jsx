@@ -56,8 +56,7 @@ const Bike = ( {setBikeCarbon, newPost, setNewPost} ) => {
         console.log(value)
         setCarbon(value[0])
         setBikeCarbon(value[0])
-        // add average here
-        const average = 5
+        const average = 38.59
         const percentage = (((average-value[0])/average)*100).toFixed(1)
         setMessage(`My bike's carbon emissions are ${percentage}% more sustainable than the average! Learn from me!`)
       })
@@ -69,7 +68,7 @@ const Bike = ( {setBikeCarbon, newPost, setNewPost} ) => {
 
   const popUp = () => {
     // add average here
-    if(carbon < 3) {
+    if(carbon < 38.59) {
       return <SharePopUp carbon = {carbon} message={message} newPost={newPost} setNewPost={setNewPost} />
     }
   }
