@@ -56,7 +56,7 @@ import {
 
 const BarChart = ( { chartData, options } ) => {
     return (
-        <Bar data={chartData} options={options} />
+        <Bar data={chartData} options={options} style={{ width: 400 }} />
     )
 }
 

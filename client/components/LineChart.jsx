@@ -56,7 +56,7 @@ import {
 
 const LineChart = ( { chartData, options } ) => {
     return (
-        <Line data={chartData} options={options} />
+        <Line data={chartData} options={options} style={{ width: 400 }} />
     )
 }
 

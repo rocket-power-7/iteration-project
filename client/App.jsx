@@ -9,20 +9,22 @@ import SignIn from "./components/Login.jsx";
 import Bodywriting from "./components/Bodywriting.jsx";
 import Chart from "./components/Dashboard.jsx";
 import BodyLogged from "./components/BodyLogged.jsx";
+import Cookies from 'js-cookie';
 
 
 const App = () => {
-    const [loggedIn, setLoggedIn] = useState(false)
-
+    // State
+    const [loggedIn, setLoggedIn] = useState(Cookies.get('token'));
+    const [posts, setPosts] = useState([]);
+    const [newPost, setNewPost] = useState(false);
 
     if (loggedIn) {
         return (
             <div>
                 <Routes>
-                    <Route path='/' element={<ButtonAppBar loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>}>
+                    <Route path='/' element={<ButtonAppBar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}>
                         <Route path='/' element={<BodyLogged />}>
-                            <Route path='/feed' exact element={<CarbonFootprint />}> 
-                            </Route>
+                            <Route exact path='/feed' element={<CarbonFootprint posts={posts} setPosts={setPosts} newPost={newPost} setNewPost={setNewPost} />} /> 
                             <Route path='/*' element={<Navigate to='/' replace={true} />} />
                         </Route>
                     </Route>
@@ -37,12 +39,9 @@ const App = () => {
             <Routes>
                 <Route path='/' element={<ButtonAppBar loggedIn={loggedIn}/>}>
                     <Route path='/' element={<Body />}>
-                        <Route path='/' exact element={<Bodywriting />}>
-                        </Route>
-                        <Route path='/Signup' element={<SignUp />}>
-                        </Route>
-                        <Route path='/Login' element={<SignIn setLoggedIn={setLoggedIn}/>}>
-                        </Route>
+                        <Route path='/' exact element={<Bodywriting />} />
+                        <Route path='/Signup' element={<SignUp posts={posts} setPosts={setPosts} />} />
+                        <Route path='/Login' element={<SignIn setLoggedIn={setLoggedIn}/>} />
                         <Route path='/*' element={<Navigate to='/' replace={true} />} />
                     </Route>
                 </Route>

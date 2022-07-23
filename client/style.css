@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 .my-card-content {
   padding: 16px;
 }

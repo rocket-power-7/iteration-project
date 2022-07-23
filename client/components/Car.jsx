@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import SharePopUp from './SharePopUp.jsx';
 
-const Car = ( { setCarCarbon } ) => {
+const Car = ( { setCarCarbon, newPost, setNewPost } ) => {
 
   const carOptions = [
     {
@@ -120,8 +120,8 @@ const Car = ( { setCarCarbon } ) => {
 
   const popUp = () => {
     // add average here
-    if(carbon < 3) {
-      return < SharePopUp carbon = {carbon} message={message} />
+    if (carbon < 3) {
+      return <SharePopUp carbon = {carbon} message={message} newPost={newPost} setNewPost={setNewPost} />
     }
   }
 
