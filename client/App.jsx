@@ -23,7 +23,7 @@ const App = () => {
                 <Routes>
                     <Route path='/' element={<ButtonAppBar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}>
                         <Route path='/' element={<BodyLogged />}>
-                            <Route path='/' element={<CarbonFootprint posts={posts} setPosts={setPosts} />} /> 
+                            <Route exact path='/feed' element={<CarbonFootprint posts={posts} setPosts={setPosts} />} /> 
                             <Route path='/*' element={<Navigate to='/' replace={true} />} />
                         </Route>
                     </Route>
