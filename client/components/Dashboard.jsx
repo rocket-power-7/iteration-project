@@ -22,9 +22,9 @@ import LineChart from "./LineChart.jsx";
     const [totalEmissionsGraph, setTotalEmissionsGraph] = useState()
     const [totalEmissionsGraphAvg, setTotalEmissionsGraphAvg] = useState()
     const [compareValue, setComparison] = useState('');
-    const [carHistoricalData, setCarHistoricalData] = useState([2,8,5,6,3])
-    const [bikeHistoricalData, setBikeHistoricalData] = useState([4,7,2,7,3])
-    const [homeHistoricalData, setHomeHistoricalData] = useState([7,9,5,2,5])
+    const [carHistoricalData, setCarHistoricalData] = useState([120,110,73,78,150])
+    const [bikeHistoricalData, setBikeHistoricalData] = useState([35,52,40,38,35])
+    const [homeHistoricalData, setHomeHistoricalData] = useState([500,500,420,400,400])
     const [arrLength, setArrLength] = useState()
     const [historicalColor, setHistoricalColor] = useState()
 
