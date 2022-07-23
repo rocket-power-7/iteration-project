@@ -26,8 +26,8 @@ body {
  .popup {
   float: "left";
   position: absolute;
-  left: 23%;
-  top: 30%;
+  left: 25%;
+  top: 34%;
   z-index: 1000;
   align-items: center;
   justify-content: center;
