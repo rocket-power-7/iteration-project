@@ -42,19 +42,24 @@ const CarbonOptions = ({ setPosts, newPost, setNewPost }) => {
   return (
     <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
       <Chart carCarbon={carCarbon} homeCarbon={homeCarbon} bikeCarbon={bikeCarbon} />
-      <h3 style={{border: "solid", marginTop: "50px"}}> Compare Your Carbon Footprint </h3>
-      <div>
-      <ToggleButtonGroup
-      color="primary"
-      value={compareValue}
-      exclusive
-      onChange={handleChange}
-      >
-        <ToggleButton value="car">Car Travel</ToggleButton>
-        <ToggleButton value="bike" >Motor Bike</ToggleButton>
-        <ToggleButton value="home" >Home Energy</ToggleButton>
-      </ToggleButtonGroup>
-      {renderBox()}
+      <br/>
+      <br/>
+      <div id='carbonOptions'>
+        <h3 id-="carbonh1"> Compare Your Carbon Footprint </h3>
+        <div id='toggleGroup'>
+          <ToggleButtonGroup
+          color="primary"
+          sx={{background: "lightgrey"}}
+          value={compareValue}
+          exclusive
+          onChange={handleChange}
+          >
+            <ToggleButton value="car">Car</ToggleButton>
+            <ToggleButton value="bike" >Motor Bike</ToggleButton>
+            <ToggleButton value="home" >Home</ToggleButton>
+          </ToggleButtonGroup>
+        {renderBox()}
+        </div>
       </div>
     </div>
   );
